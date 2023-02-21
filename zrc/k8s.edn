@@ -1,0 +1,20 @@
+{ns k8s
+
+ Resource
+ {:zen/tags #{zen/schema}
+  :type zen/map
+  :keys {:apiVersion {:type zen/string}
+         :kind {:type zen/string}
+         :labels {:type zen/vector}}}
+
+ Deployment
+ {:zen/tags #{zen/schema}
+  :confirms #{Resource}
+  :type zen/map
+  :keys {:spec {:type zen/map
+                :keys  {:replicas {:type zen/integer}
+                        :container {:type zen/vector
+                                    :every {:type zen/map
+                                            :require #{:name :image}
+                                            :keys {:name {:type zen/string}
+                                                   :image {:type zen/string}}}}}}}}}
