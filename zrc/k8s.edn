@@ -8,7 +8,7 @@
          :labels {:type zen/vector}}}
 
  Deployment
- {:zen/tags #{zen/schema}
+ {:zen/tags #{zen/schema zen/tag}
   :confirms #{Resource}
   :type zen/map
   :keys {:spec {:type zen/map
